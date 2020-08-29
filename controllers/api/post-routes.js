@@ -8,8 +8,8 @@ router.get('/', (req, res) => {
     Post.findAll({
         attributes: [
             'id',
-            'blog_body',
             'title',
+            'blog_body',
             'created_at',
         ],
         order: [['created_at', 'DESC']],
@@ -44,8 +44,8 @@ router.get('/:id', (req, res) => {
         },
         attributes: [
             'id',
-            'blog_body',
             'title',
+            'blog_body',            
             'created_at',
         ],
         include: [

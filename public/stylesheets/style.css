@@ -1,31 +1,91 @@
 * {
     box-sizing: border-box;
 }
+
+:root {
+    --primary: rgb(149, 64, 230);
+    --secondary: cornsilk;
+    --tertiary: darkgrey;
+    --main-hover: #842d96;
+}
   
 body, html {
     height: 100%;
     padding: 0;
     margin: 0;
-    font-family: sans-serif;
-    color: #333;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--secondary);
 }
+ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+}
+
+header {
+    background-color: var(--primary);
+    border-bottom: 1px solid var(--tertiary);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 5%;
+    font-size: 1.5em;
+    color: var(--secondary);
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    gap: 20px;
+}
+nav ul li {
+   font-size: 15px;
+}
+
+header h1 {
+    color: var(--secondary);
+    font-size: 1em;
+}
+
+.login-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.login-wrapper, .signup-form {
+    text-align: center;
+    font-size: 20px;
+}
+
+.login-wrapper button {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+}
+
 
 a {
     text-decoration: none;
-    color: #225ca3;
     font-weight: bold;
     transition: color .1s;
 }
-
+a span {
+    color: var(--secondary);
+}
 a:hover {
-    color: #3486eb;
+    color: var(--main-hover);
 }
 
+
 button {
-    background-color: #225ca3;
+    background-color: var(--primary);
     border: 0;
     padding: 1%;
-    color: white;
+    color: var(--secondary);
     font-weight: bold;
     transition: background-color .1s;
     cursor: pointer;
@@ -33,23 +93,33 @@ button {
 }
 
 button:hover {
-    background-color: #3486eb;
+    background-color: var(--main-hover);
 }
-
+.post {
+    padding: 1%;
+}
+.post:nth-child(odd) {
+    background-color: white;
+}
 .post-list {
-    margin: 0;
-    padding: 0;
+    margin: 5;
+    padding: 5;
 }
 
+.blog-text-area {
+    height: 300px;
+    width: 100%;
+}
 textarea, input {
-    padding: .5%;
+    padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 textarea:focus, input:focus {
     outline: none;
-    border: 1px solid #3486eb;
+    border: 1px solid var(--main-hover);
 }
 
 textarea {
@@ -74,37 +144,25 @@ form label {
     flex-direction: column;
 }
 
-header {
-    border-bottom: 1px solid #ccc;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1%;
-}
-
-header h1 {
-    font-size: 1em;
-}
-
 main {
     flex: 1;
     padding: 2% 4%;
 }
 
-.btn-no-style {
+.main-btn {
     background: none;
     border: none;
-    padding: 0;
+    padding: 5;
     cursor: pointer;
     text-decoration: none;
-    color: #1e5eac;
+    color: #2d5a91;
     font-size: 100%;
     font-weight: bold;
     transition: color .1s;
     margin-left: 16px;
 }
 
-.btn-no-style:hover {
+.main-btns:hover {
     background: none;
     color: #3486eb;
 }
@@ -114,7 +172,7 @@ main {
 }
 
 .delete-post-btn:hover {
-    background-color: #ee5d39;
+    background-color: #d34b5f;
 }
 
 .post {
@@ -122,10 +180,12 @@ main {
     line-height: 150%;
 }
 
-.post .title span {
-    font-style: italic;
-    font-size: 90%;
-    color: #7d7d7d;
+.post .title {
+    color: black;
+    border-bottom: 1px solid black;
+}
+.title p {
+    white-space: pre-wrap;
 }
 
 .edit-link {
@@ -143,7 +203,7 @@ main {
 }
 
 .comment:nth-child(odd) {
-    background-color: #dddad6;
+    background-color: white;
 }
 
 .comment .meta {
@@ -158,10 +218,11 @@ main {
 
 .edit-post-form {
     margin-bottom: 5%;
+    display: block;
 }
 
 footer {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid var(--tertiary);
     display: flex;
     justify-content: center;
     padding: 1%;
