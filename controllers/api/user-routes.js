@@ -1,10 +1,9 @@
 const router = require('express').Router();
-const { User, Post } = require("../../models");
+const { User, Post, Comment } = require("../../models");
 const withAuth = require('../../utils/auth');
 
 // GET /api/users
 router.get('/', (req, res) => {
-    // Access our User model and run .findAll() method)
     User.findAll({
         attributes: { exclude: ['password'] }
     })
@@ -27,7 +26,6 @@ router.get('/:id', (req, res) => {
                 model: Post,
                 attributes: ['id', 'title', 'blog_body', 'created_at']
             },
-            // include the Comment model here:
             {
                 model: Comment,
                 attributes: ['id', 'comment_text', 'created_at'],
@@ -52,7 +50,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST /api/users
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
     // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
     User.create({
         username: req.body.username,

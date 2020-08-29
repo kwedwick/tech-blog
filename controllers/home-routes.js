@@ -27,7 +27,6 @@ router.get('/', (req, res) => {
     ]
   })
     .then(dbPostData => {
-      //console.log(dbPostData[0]);
       // pass a single post object into the homepage template
       const posts = dbPostData.map(post => post.get({ plain: true }));
       res.render('homepage', {
@@ -48,12 +47,6 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
-});
-
-router.get('/', (req, res) => {
-  console.log(req.session);
-
-  // other logic...
 });
 
 //this is getting one post to display with comments and interact with
