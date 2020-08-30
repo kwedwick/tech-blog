@@ -12,7 +12,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 require('dotenv').config();
 
 const sess = {
-  secret: process.env.SESS_SECRET,
+  secret: 'sadlkf932j;klasdf8932ja;sdklj02',
   cookie: {
     maxAge: 24 * 3600000
   },
